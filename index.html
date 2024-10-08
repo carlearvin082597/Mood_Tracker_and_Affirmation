@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login Form</title>
+</head>
+<body>
+    <h1>Mood Tracker & Affirmations</h1>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="user-box">
+                <input type="text" id="username" class="userName" name="input-text" required>
+                <label>Username</label>
+            </div>
+            <div class="user-box">
+                <input type="password" class="passWord" name="input-password" id="password" required/>
+                <label>Password</label>
+                <span><button class="login-btn-tgl" type="button" id="togglePassword" name="button">Show</button></span>
+            </div>
+            <button type="submit" class="login-btn" name="button">Log in</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html" target="_blank">Sign up here</a></p>
+        <br><p><a href="terms-and-condition.html">Terms and conditions</a></p>
+
+    </div>  
+
+    <script>
+        // Simulating a user database for demo purposes (replace this with actual signup logic)
+        localStorage.setItem('users', JSON.stringify([{ username: 'user1', password: 'pass1' }]));
+
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent the form from submitting
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Get stored users from localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Check if the user exists in localStorage
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                // Successful login, redirect to main page
+                window.location.href = "main-page.html";
+            } else {
+                // Invalid login, show error and redirect to signup page
+                alert("Invalid login, redirecting to Sign Up page");
+                window.location.href = "signup.html";
+            }
+        });
+
+        // Toggle password visibility
+        const toggleButton = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        toggleButton.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            toggleButton.textContent = type === 'password' ? 'Show' : 'Hide';  // Change button text
+        });
+    </script>
+    </body>
+</html>

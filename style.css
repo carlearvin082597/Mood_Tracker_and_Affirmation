@@ -1,0 +1,195 @@
+@media (max-width: 600px) {
+  .login-box {
+      width: 90%;
+      padding: 20px;
+  }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 90%;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+    padding: 0;
+    height: 100vh;
+    background: url('/image/nightsky-stars.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background:  rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+    border-radius: 10px;
+  }
+  
+  .login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+
+  h2 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-decoration: none;
+
+  }
+  
+  .login-box .user-box {
+    position: relative;
+  }
+  
+  .login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 2px solid #03e9f4;
+    outline: none;
+    background: transparent;
+  }
+
+  .login-box .user-box input,
+  .login-btn {
+    transition: all 0.3s ease-in-out;
+}
+
+
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    color: #03e9f4;
+    font-weight: bold;  /* Makes the label pop out more */
+}
+  .login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+  }
+  
+  .login-box form a {   
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #c4b7e7;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+  
+    .login-btn {
+    background: #58a6a6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    letter-spacing: 4px;
+    transition: background .5s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-decoration: none;
+    width: auto; /* Allow the button to take up necessary space */
+}
+
+
+  .login-box-tgl {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  /* Button styles */
+  .login-btn:hover {
+    background: #028496;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  .login-btn:active {
+    background: #025e72;
+  }
+
+  h1, p{
+    text-align: center;
+    color: hsl(199, 100%, 10%);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,.2);
+    margin-bottom: 20px;
+    text-decoration-skip-ink: auto;
+    margin-top: 20px;
+    
+
+  }
+  h1 {
+    font-size: 28px;
+    color: #000f16;
+    margin-bottom: 20px;    
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,.2);
+    margin-top: 50px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #000f16;
+    text-decoration-style: dotted;
+    margin-bottom: 20px;
+    text-decoration-skip-ink: auto;
+  }
+
+  #togglePassword {
+    border: none;
+    height: 10;
+    border-radius: 5px;
+    background-color: #006594;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+    float: right;
+  }

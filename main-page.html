@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker & Affirmations</title>
+    <link rel="stylesheet" href="main-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body onload="loadSavedTheme()">
+    <div class="container">
+        <h1>Mood Tracker & Affirmation Generator</h1>
+
+        <!-- Mood Selection -->
+        <section class="mood-section">
+            <h2>Select your mood</h2>
+            <div class="mood-buttons">
+                <button onclick="selectMood('😊')">😊 Happy</button>
+                <button onclick="selectMood('😢')">😢 Sad</button>
+                <button onclick="selectMood('😡')">😡 Angry</button>
+                <button onclick="selectMood('😰')">😰 Stressed</button>
+                <button onclick="selectMood('😌')">😌 Calm</button>
+            </div>
+            <p id="selectedMood">You haven't selected a mood yet.</p>
+        </section>
+
+        <!-- Journal Entry -->
+        <section class="journal-section">
+            <h2>Write your journal entry</h2>
+            <textarea id="journalEntry" placeholder="How are you feeling today?"></textarea>
+            <button onclick="saveJournalEntry()">Save Journal Entry</button>
+        </section>
+
+        <!-- Affirmation -->
+        <section class="affirmation-section">
+            <h2>Your daily affirmation</h2>
+            <button onclick="generateAffirmation()">Get Affirmation</button>
+            <p id="affirmation">Press the button for an affirmation.</p>
+        </section>
+
+        <!-- Mood and Journal History -->
+        <section class="history-section">
+            <h2>Your Mood History</h2>
+            <button onclick="viewMoodHistory()">View Mood History</button>
+            <div id="moodHistory"></div>
+        </section>
+
+        <!-- Theme Switcher -->
+        <section class="theme-section">
+            <h2>Switch Theme</h2>
+            <button onclick="switchTheme('light')">Light Theme</button>
+            <button onclick="switchTheme('dark')">Dark Theme</button>
+        </section>
+
+        <!-- Save Mood & Journal -->
+        <button class="save-all" onclick="saveMoodAndJournal()">Save Mood and Journal</button>
+
+        <!-- Reset App -->
+        <button class="reset" onclick="resetApp()">Reset App</button>
+    </div>
+
+    <script src="main-page.js"></script>
+</body>
+</html>
