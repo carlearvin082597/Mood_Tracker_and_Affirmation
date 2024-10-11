@@ -23,35 +23,31 @@
             <button type="submit" class="login-btn" name="button">Log in</button>
         </form>
         <p>Don't have an account? <a href="signup.html" target="_blank">Sign up here</a></p>
-        <br><p><a href="terms-and-condition.html">Terms and conditions</a></p>
+        <br><p>Read our <a href="terms-and-condition.html" target="_blank">Terms and conditions</a></p>
 
     </div>  
 
     <script>
-        // Simulating a user database for demo purposes (replace this with actual signup logic)
-        localStorage.setItem('users', JSON.stringify([{ username: 'user1', password: 'pass1' }]));
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+    event.preventDefault();  // Prevent the form from submitting normally
 
-        document.getElementById('loginForm').addEventListener('submit', function (event) {
-            event.preventDefault();  // Prevent the form from submitting
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+    // Retrieve stored users from localStorage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
 
-            // Get stored users from localStorage
-            const users = JSON.parse(localStorage.getItem('users')) || [];
+    // Check if the user exists with matching username and password
+    const user = users.find(user => user.username === username && user.password === password);
 
-            // Check if the user exists in localStorage
-            const user = users.find(u => u.username === username && u.password === password);
-
-            if (user) {
-                // Successful login, redirect to main page
-                window.location.href = "main-page.html";
-            } else {
-                // Invalid login, show error and redirect to signup page
-                alert("Invalid login, redirecting to Sign Up page");
-                window.location.href = "signup.html";
-            }
-        });
+    if (user) {
+        alert("Login successful! Redirecting to main page...");
+        window.location.href = "main-page.html";  // Redirect to the main page
+    } else {
+        alert("Invalid login credentials. Please try again or register.");
+        window.location.href = "signup.html";  // Redirect to signup page
+    }
+});
 
         // Toggle password visibility
         const toggleButton = document.getElementById('togglePassword');
