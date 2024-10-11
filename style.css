@@ -20,7 +20,7 @@ html {
     margin-top: 50px;
     padding: 0;
     height: 100vh;
-    background: url('nightsky-stars.jpg') no-repeat center center fixed;
+    background: url('/image/nightsky-stars.jpg') no-repeat center center fixed;
     background-size: cover;
   }
   
