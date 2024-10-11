@@ -45,18 +45,29 @@
             const password = document.getElementById('signupPassword').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
 
-            // Simple form validation (you can expand this with more checks if needed)
             if (password === confirmPassword) {
-                // Store the user details (optional step, for demo purpose)
-                // In a real-world scenario, you'd send these details to a backend server
+        // Get existing users from localStorage, or initialize an empty array if none
+        const users = JSON.parse(localStorage.getItem('users')) || [];
 
-                alert("Registration successful! Redirecting to login page...");
-                // Redirect to login page after successful signup
-                window.location.href = "index.html";  // Change this to the correct path for your login page
-            } else {
-                alert("Passwords do not match. Please try again.");
-            }
-        });
+        // Check if the username or email is already registered
+        const userExists = users.some(user => user.username === username || user.email === email);
+
+        if (userExists) {
+            alert("Username or email is already registered.");
+        } else {
+            // Add the new user to the list
+            users.push({ username, email, password });
+
+            // Save updated users array to localStorage
+            localStorage.setItem('users', JSON.stringify(users));
+
+            alert("Registration successful! Redirecting to login page...");
+            window.location.href = "index.html";  // Redirect to login page
+        }
+    } else {
+        alert("Passwords do not match. Please try again.");
+    }
+});
     </script>
 </body>
 </html>
